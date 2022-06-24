@@ -1,0 +1,336 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap');
+
+$Scissors:hsl(39, 89%, 49%);
+$Paper: hsl(230, 89%, 62%);
+$Rock: hsl(349, 71%, 52%);
+$Lizard: hsl(261, 73%, 60%);
+$Cyan: hsl(189, 59%, 53%);
+$body: radial-gradient(circle , hsl(214, 47%, 23%) 0%, hsl(237, 49%, 15%) 100%);
+$dark: hsl(229, 25%, 31%);
+$score: hsl(229, 64%, 46%);
+$header: hsl(217, 16%, 45%);
+$white-bg: linear-gradient(0deg, #f3f3f3 0%, #ffffff 100%);
+$shadow: 0px 0.187rem 0.187rem rgba(0,0,0,0.2);
+
+$test: radial-gradient(circle, #062e23, #5390D9 100%);
+*{
+    box-sizing: border-box;
+}
+
+body{
+    background: $body;
+    // background-position: center;
+    background-size: 100% 150%;
+    // background-repeat: no-repeat;
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    // overflow: hide;
+    margin: 0;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    position: relative;
+}
+
+.body-overlay{
+    position: absolute;
+    width: 100vw;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: hsla(0, 0%, 0%, 0.55);
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .rules{
+        width: 26.8rem;
+        height: 26.5rem;
+        border-radius: 0.5rem;
+        background: $white-bg;
+        box-shadow: $shadow;
+        display: flex;
+        flex-direction: column;   
+        .rules-header{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 1.25rem 1.875rem 2.19rem;
+            .rules-heading{
+                margin: 0;
+                text-transform: uppercase;
+                font-size: 2rem;
+                font-weight: 700;
+                color: $dark;
+            }
+            .close-button{
+                cursor: pointer;
+            }
+        }
+        img{
+            align-self: center;
+        }
+    }
+}
+
+.container{
+    width: 40rem;
+    height: 25rem;
+    margin-top: 4rem;
+    display: flex;
+    justify-content: center;
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 3.125rem 0 5.375rem; 
+    padding: 1.25rem 1.56rem;
+    border-radius: 0.94rem;
+    border: 0.187rem solid $header;
+    width: 45rem;
+
+    img{
+        max-height: 6.25rem;
+    }
+    .score-container{     
+        background: $white-bg;
+        box-shadow: $shadow;
+        padding: 0.625rem 2.8rem;
+        border-radius: 0.5rem;
+
+        .score-contents{
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+
+            p{
+                margin: 0;
+            }
+            .score-heading{
+                font-weight: 600;
+                letter-spacing: 0.15rem;
+                color: $score;
+                text-transform: uppercase;
+            }
+            .score{
+                font-weight: 700;
+                font-size: 4rem;
+                color: $dark;
+                position: relative;
+                
+                .you{
+                    position: absolute;
+                    bottom: 0;
+                    left: 25%;
+                    padding: 0.31rem 0.125rem 0.187rem;
+                    color: $dark;
+                    font-size: 0.75rem;
+                }
+            }
+        }
+    }
+}
+
+.main-background-two{
+    width: 18.25rem;
+    height: 18.25rem;
+    border-radius: 50%;
+    display: flex;
+    background-color: #fff;
+    box-shadow: $shadow;
+    .main-background{
+        width: inherit;
+        height: 17.875rem;
+        border-radius: inherit;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .background-two{
+            width: 14rem;
+            height: 14rem;
+            background: #babfd4;
+            border-radius: 50%;
+            display: flex;
+            align-items: flex-end;
+            .background{
+                background: linear-gradient(0deg, #f3f3f3 0%, #dadada 100%);
+                border-radius: inherit;
+                width: inherit;
+                height: 13.3rem;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+    }    
+}
+
+.paper.main-background-two{
+    background-color: darken($Paper, 4%);
+    .main-background{
+        background-color: $Paper;
+        img{
+            width: 6.75rem;
+            height: 7.8rem;
+        }
+    }
+}
+.scissors.main-background-two{
+    background-color: darken($Scissors, 4%);
+    .main-background{
+        background-color: $Scissors;
+        img{
+            width: 8.875rem;
+            height: 8.875rem;
+        }
+    }
+}
+.rock.main-background-two{
+    background-color: darken($Rock, 4%);
+    .main-background{
+        background-color: $Rock;
+        img{
+            width: 6.84rem;
+            height: 6.84rem;
+        }
+    }
+}
+
+.triangle{
+    position: relative;
+    width: 19rem; 
+    height: 17.3rem;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    .main-background-two{
+        position: absolute;
+        width: 12.37rem;
+        height: 12.7rem;
+        .main-background{
+            height: 12.125rem;
+            .background-two{
+                width: 9.5rem;
+                height: 9.5rem;
+                .background{
+                    height: 9rem;
+                }
+            }
+        }    
+    }
+    .main-background-two:hover{
+        cursor: pointer;
+        box-shadow: 0px 0px 0px 1.56rem rgba(255, 255, 255, 0.05);
+    }
+    .paper.main-background-two{
+        top: -30%;
+        left: -30%;
+        img{
+            width: 4.56rem;
+            height: 5.25rem;
+        }
+    }
+    .scissors.main-background-two{
+        top: -30%;
+        right: -30%;
+        img{
+            width: 6rem;
+            height: 6rem;
+        }
+    }
+    .rock.main-background-two{
+        bottom: -30%;
+        left: 50%;
+        transform: translateX(-50%);
+        img{
+            width: 4.75rem;
+            height: 4.75rem;
+        }
+    }
+}
+
+.picked{
+    display: flex;
+    align-items: center;
+    margin-top: -5.5rem;
+    .pick-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .pick-heading{
+            text-transform: uppercase;
+            text-shadow: $shadow;
+            color: #fff;
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 0.187rem;
+            margin: 0 0 1.25rem;
+        }
+    }
+    #you-picked{
+        margin-right: 4.68rem;
+    }
+    .blue-background{
+        width: 18.25rem;
+        height: 18.25rem;
+        border-radius: 50%;
+        background: rgba(0,0,0,0.1);
+    }
+
+    .result-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        width: 21.25rem;
+        height: 8.18rem;
+        margin-right: 4.68rem;
+        p{
+            margin: 0;
+        }
+        .result{
+            text-shadow: $shadow;
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #fff;
+            text-transform: uppercase;
+        }
+        .play-again{
+            width: 100%;
+            padding: 0.94rem;
+            border-radius: 0.5rem;
+            background: $white-bg;
+            box-shadow: $shadow;
+            color: $dark;
+            letter-spacing: 0.156rem;
+            text-transform: uppercase;
+        }
+        .play-again:hover{
+            cursor: pointer;
+        }
+    }
+}
+
+.rules-button{
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 0.156rem;
+    color: #ffffff;
+    border-radius: 0.5rem;
+    border: 0.187rem solid $header;
+    padding: 0.625rem 1.875rem;
+    background-color: transparent;
+    position: fixed;
+    right: 2%;
+    bottom: 3%;
+}
+.rules-button:hover{
+    background: $white-bg;
+    border: 0.187rem solid $dark;
+    color: $dark;
+    cursor: pointer;
+}

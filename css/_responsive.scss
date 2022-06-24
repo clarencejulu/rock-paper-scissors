@@ -1,0 +1,84 @@
+@use 'body';
+
+$size: 14;
+$screen: 800;
+$sizes-for-topMargin: 500px 20%, 460px 23%, 400px 25%;
+$sizes-for-rules: 741px 30rem, 620px 35rem;
+
+@while $screen >= 400 { 
+    $formedia: $screen * 1px;
+    @media (max-width: $formedia) {
+        :root{
+            font-size: $size * 1px;
+        }
+    }
+    $size: $size - 1;
+    $screen: $screen - 60;
+}
+@each $screen, $size in $sizes-for-topMargin{
+    @media (max-width: $screen){
+        .container{
+            margin-top: $size;
+        }
+    }
+}
+@each $screen, $size in $sizes-for-rules{
+    @media (max-width: $screen){
+        .body-overlay{
+            .rules{
+                width: 35rem;
+                height: $size;
+            }
+        }   
+    }
+}
+
+@media (max-width: 725px) {
+    body{
+        height: 100vh;
+    }
+}
+@media (max-width: 560px) {
+    .rules-button{
+        right: 50%;
+        transform: translateX(50%);
+    }
+}
+@media(max-width: 501px){
+    .body-overlay{
+        .rules{
+            border-radius: 0;
+            width: 100%;
+            height: 100%;
+            .rules-header{
+                margin-top: 100px;
+                margin-bottom: 50px;;
+                justify-content: center;
+                position: relative;
+                .rules-heading{
+                    font-size: 30px;
+                }
+                .close-button{
+                    position: absolute;
+                    top: 1200%;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 500px) {
+    .header{
+        width: 37rem;
+    }  
+}
+@media (max-width: 440px){
+    .picked{
+        .result-container{
+            margin-top: 2rem;
+        }
+    }
+}
+
+
+
