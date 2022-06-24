@@ -33,6 +33,16 @@ $sizes-for-rules: 741px 30rem, 620px 35rem;
     }
 }
 
+@media (max-width: 1105px){
+    .picked{
+        position: relative;
+        .result-container{  
+        position: absolute;
+        top: 100%;
+        right: 10.5%;
+        }
+    }
+}
 @media (max-width: 725px) {
     body{
         height: 100vh;

@@ -375,6 +375,16 @@ body {
     height: 35rem;
   }
 }
+@media (max-width: 1105px) {
+  .picked {
+    position: relative;
+  }
+  .picked .result-container {
+    position: absolute;
+    top: 100%;
+    right: 10.5%;
+  }
+}
 @media (max-width: 725px) {
   body {
     height: 100vh;
