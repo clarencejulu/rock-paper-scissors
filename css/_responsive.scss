@@ -88,7 +88,8 @@ $sizes-for-rules: 741px 30rem, 620px 35rem;
 }
 
 @media (max-width: 500px) {
-    .header{
+    .header{                  
+        min-height: 100px;   
         width: 37rem;
     }  
 }

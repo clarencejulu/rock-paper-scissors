@@ -427,6 +427,7 @@ body {
 }
 @media (max-width: 500px) {
   .header {
+    min-height: 100px;
     width: 37rem;
   }
 }
