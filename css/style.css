@@ -387,7 +387,16 @@ body {
 }
 @media (max-width: 725px) {
   body {
-    height: 100vh;
+    height: 100%;
+  }
+
+  .picked .result-container {
+    top: 98%;
+  }
+}
+@media (max-width: 668px) {
+  .header {
+    min-height: 121px;
   }
 }
 @media (max-width: 560px) {
