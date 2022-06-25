@@ -387,6 +387,7 @@ body {
 }
 @media (max-width: 725px) {
   body {
+    min-height: 100vh;
     height: 100%;
   }
 

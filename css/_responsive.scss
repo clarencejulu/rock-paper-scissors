@@ -45,6 +45,7 @@ $sizes-for-rules: 741px 30rem, 620px 35rem;
 }
 @media (max-width: 725px) {
     body{
+        min-height: 100vh;
         height: 100%;
     }
     .picked{
