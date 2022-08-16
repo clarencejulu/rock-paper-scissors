@@ -19,7 +19,7 @@
     <div class="score-container">
       <div class="score-contents">
         <p class="score-heading">score</p>
-        <p class="score"><span class="you">you</span><span class="your-score">0</span> - <span class="cpu-score">0</span></p>
+        <p class="score"><span class="you">you</span><span id="your-score">0</span> - <span id="cpu-score">0</span></p>
       </div>
     </div>
   </div>
@@ -27,8 +27,16 @@
   <div class="container">
     <div id="main-container"></div>
   </div>
- 
-  <button class="rules-button">rules</button>
+  
+  <audio id="win" src="sounds/win.mp3"></audio>
+  <audio id="tie" src="sounds/tie.mp3"></audio>
+  <audio id="lose" src="sounds/lose.mp3"></audio>
+
+  <div class="fixed-buttons">
+    <button id="sound-button">sound: on</button>
+    <button id="rules-button">rules</button>
+  </div>
+
   
   <script src="script.js"></script>
 </body>

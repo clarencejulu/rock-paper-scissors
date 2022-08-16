@@ -3,30 +3,30 @@
 $Scissors:hsl(39, 89%, 49%);
 $Paper: hsl(230, 89%, 62%);
 $Rock: hsl(349, 71%, 52%);
-$Lizard: hsl(261, 73%, 60%);
-$Cyan: hsl(189, 59%, 53%);
 $body: radial-gradient(circle , hsl(214, 47%, 23%) 0%, hsl(237, 49%, 15%) 100%);
 $dark: hsl(229, 25%, 31%);
 $score: hsl(229, 64%, 46%);
 $header: hsl(217, 16%, 45%);
 $white-bg: linear-gradient(0deg, #f3f3f3 0%, #ffffff 100%);
-$shadow: 0px 0.187rem 0.187rem rgba(0,0,0,0.2);
+$shadow: 0 0.187rem 0.187rem rgba(0,0,0,0.2);
 
-$test: radial-gradient(circle, #062e23, #5390D9 100%);
+:root{
+    font-size: 14.4px;
+}
+
 *{
     box-sizing: border-box;
 }
 
 body{
-    height: 100vh;
-    background: $body;
-    // background-position: center;
-    background-size: 100% 150%;
-    // background-repeat: no-repeat;
-    font-family: 'Barlow Semi Condensed', sans-serif;
-    // overflow: hide;
-    margin: 0;
+    min-height: 100vh;
+    height: 100%;
 
+    background: $body;
+    background-size: 100% 150%;
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    margin: 0;
+    padding: 0.2rem; // to eliminate unwanted space at bottom of page 
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -225,7 +225,7 @@ body{
     }
     .main-background-two:hover{
         cursor: pointer;
-        box-shadow: 0px 0px 0px 1.56rem rgba(255, 255, 255, 0.05);
+        box-shadow: 0 0 0 1.56rem rgba(255, 255, 255, 0.05);
     }
     .paper.main-background-two{
         top: -30%;
@@ -316,22 +316,29 @@ body{
     }
 }
 
-.rules-button{
-    text-transform: uppercase;
-    text-align: center;
-    letter-spacing: 0.156rem;
-    color: #ffffff;
-    border-radius: 0.5rem;
-    border: 0.187rem solid $header;
-    padding: 0.625rem 1.875rem;
-    background-color: transparent;
+.fixed-buttons{
     position: fixed;
-    right: 2%;
-    bottom: 3%;
+    right: 4%;
+    bottom: 4%;
+    button{
+        text-transform: uppercase;
+        text-align: center;
+        letter-spacing: 0.156rem;
+        color: #ffffff;
+        border-radius: 0.5rem;
+        border: 0.187rem solid $header;
+        padding: 0.625rem 1.875rem;
+        background-color: transparent;
+    }
+    button:hover{
+        background: $white-bg;
+        border-color: $dark;
+        color: $dark;
+        cursor: pointer;
+    }
+    #sound-button{
+        margin-right: 1rem;
+    }
 }
-.rules-button:hover{
-    background: $white-bg;
-    border: 0.187rem solid $dark;
-    color: $dark;
-    cursor: pointer;
-}
+
+

@@ -1,8 +1,13 @@
-const rulesButton = document.querySelector('.rules-button');
+const rulesButton = document.getElementById('rules-button');
+const soundButton = document.getElementById('sound-button');
 const mainContainer = document.getElementById('main-container');
 const array = ['paper', 'scissors','rock'];
-const yourScore = document.querySelector('.your-score');
-const cpuScore = document.querySelector('.cpu-score');
+const yourScore = document.getElementById('your-score');
+const cpuScore = document.getElementById('cpu-score');
+const win = document.getElementById('win');
+const tie = document.getElementById('tie');
+const lose = document.getElementById('lose');
+const soundArray = ['win', 'tie', 'lose'];
 
 rulesButton.addEventListener( 'click', () => {
     const divOverlay = document.createElement('div');
@@ -24,6 +29,24 @@ rulesButton.addEventListener( 'click', () => {
         divOverlay.remove();
     })
 })
+
+soundButton.addEventListener( 'click', () => {
+  if(soundButton.innerHTML === 'sound: on'){
+    soundButton.innerHTML = 'sound: off';
+    soundArray.forEach( sound => {
+      document.getElementById(sound).volume = 0.0;
+    })
+  }
+  else if(soundButton.innerHTML === 'sound: off'){
+    soundButton.innerHTML = 'sound: on';
+    soundArray.forEach( sound => {
+      document.getElementById(sound).volume = 1.0;
+    })
+  }
+  else{
+    console.log('Sound Button is not working');
+  }
+}) 
 
 const currentScore = JSON.parse(localStorage.getItem('gameScore')); 
 if(currentScore){
@@ -96,6 +119,27 @@ function createTriangle(){
             </div>
           </div>
         </div>`;
+
+        if(selection == houseChoice){
+          console.log('It is a tie. Score does not need to be updated');
+        }
+        else if((selection == 'rock' && houseChoice == 'scissors') || (selection == 'scissors' && houseChoice == 'paper') || (selection == 'paper' && houseChoice == 'rock')){
+          yourScore.innerText = `${+(yourScore.innerText) + 1}`; 
+        }
+        else if((selection == 'rock' && houseChoice == 'paper') || (selection == 'scissors' && houseChoice == 'rock') || (selection == 'paper' && houseChoice == 'scissors')){
+          cpuScore.innerText = `${+(cpuScore.innerText) + 1}`;
+          lose.play();
+        }
+        else{
+          console.log('score problem');
+        }
+        
+        const gameScore = [];
+        gameScore.push({
+          yourScore: yourScore.innerText,
+          cpuScore: cpuScore.innerText
+        })
+        localStorage.setItem('gameScore', JSON.stringify(gameScore));         
     }, 1500);
 
     setTimeout(()=>{
@@ -108,28 +152,23 @@ function createTriangle(){
       const result = document.querySelector('.result');
 
       //check result
+
       if(selection == houseChoice){
         result.innerHTML = "tie";
+        tie.play();
       }
       else if((selection == 'rock' && houseChoice == 'scissors') || (selection == 'scissors' && houseChoice == 'paper') || (selection == 'paper' && houseChoice == 'rock')){
         result.innerHTML = "you win"; 
-        yourScore.innerText = `${+(yourScore.innerText) + 1}`;
+        win.play();
       }
       else if((selection == 'rock' && houseChoice == 'paper') || (selection == 'scissors' && houseChoice == 'rock') || (selection == 'paper' && houseChoice == 'scissors')){
         result.innerHTML = "you lose";
-        cpuScore.innerText = `${+(cpuScore.innerText) + 1}`;
       }
       else{
         console.log('result problem');
       }
-      
-      const gameScore = [];
-      gameScore.push({
-        yourScore: yourScore.innerText,
-        cpuScore: cpuScore.innerText
-      })
-      localStorage.setItem('gameScore', JSON.stringify(gameScore));
     },2500);
+    
   }) })
 }
 

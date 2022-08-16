@@ -1,14 +1,20 @@
 @import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap");
+:root {
+  font-size: 14.4px;
+}
+
 * {
   box-sizing: border-box;
 }
 
 body {
-  height: 100vh;
+  min-height: 100vh;
+  height: 100%;
   background: radial-gradient(circle, hsl(214deg, 47%, 23%) 0%, hsl(237deg, 49%, 15%) 100%);
   background-size: 100% 150%;
   font-family: "Barlow Semi Condensed", sans-serif;
   margin: 0;
+  padding: 0.2rem;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -32,7 +38,7 @@ body {
   height: 26.5rem;
   border-radius: 0.5rem;
   background: linear-gradient(0deg, #f3f3f3 0%, #ffffff 100%);
-  box-shadow: 0px 0.187rem 0.187rem rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0.187rem 0.187rem rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: column;
 }
@@ -79,7 +85,7 @@ body {
 }
 .header .score-container {
   background: linear-gradient(0deg, #f3f3f3 0%, #ffffff 100%);
-  box-shadow: 0px 0.187rem 0.187rem rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0.187rem 0.187rem rgba(0, 0, 0, 0.2);
   padding: 0.625rem 2.8rem;
   border-radius: 0.5rem;
 }
@@ -118,7 +124,7 @@ body {
   border-radius: 50%;
   display: flex;
   background-color: #fff;
-  box-shadow: 0px 0.187rem 0.187rem rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0.187rem 0.187rem rgba(0, 0, 0, 0.2);
 }
 .main-background-two .main-background {
   width: inherit;
@@ -204,7 +210,7 @@ body {
 }
 .triangle .main-background-two:hover {
   cursor: pointer;
-  box-shadow: 0px 0px 0px 1.56rem rgba(255, 255, 255, 0.05);
+  box-shadow: 0 0 0 1.56rem rgba(255, 255, 255, 0.05);
 }
 .triangle .paper.main-background-two {
   top: -30%;
@@ -244,7 +250,7 @@ body {
 }
 .picked .pick-container .pick-heading {
   text-transform: uppercase;
-  text-shadow: 0px 0.187rem 0.187rem rgba(0, 0, 0, 0.2);
+  text-shadow: 0 0.187rem 0.187rem rgba(0, 0, 0, 0.2);
   color: #fff;
   font-size: 1.5rem;
   font-weight: 700;
@@ -273,7 +279,7 @@ body {
   margin: 0;
 }
 .picked .result-container .result {
-  text-shadow: 0px 0.187rem 0.187rem rgba(0, 0, 0, 0.2);
+  text-shadow: 0 0.187rem 0.187rem rgba(0, 0, 0, 0.2);
   font-size: 3.5rem;
   font-weight: 700;
   color: #fff;
@@ -284,7 +290,7 @@ body {
   padding: 0.94rem;
   border-radius: 0.5rem;
   background: linear-gradient(0deg, #f3f3f3 0%, #ffffff 100%);
-  box-shadow: 0px 0.187rem 0.187rem rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0.187rem 0.187rem rgba(0, 0, 0, 0.2);
   color: hsl(229deg, 25%, 31%);
   letter-spacing: 0.156rem;
   text-transform: uppercase;
@@ -293,7 +299,12 @@ body {
   cursor: pointer;
 }
 
-.rules-button {
+.fixed-buttons {
+  position: fixed;
+  right: 4%;
+  bottom: 4%;
+}
+.fixed-buttons button {
   text-transform: uppercase;
   text-align: center;
   letter-spacing: 0.156rem;
@@ -302,16 +313,15 @@ body {
   border: 0.187rem solid hsl(217deg, 16%, 45%);
   padding: 0.625rem 1.875rem;
   background-color: transparent;
-  position: fixed;
-  right: 2%;
-  bottom: 3%;
 }
-
-.rules-button:hover {
+.fixed-buttons button:hover {
   background: linear-gradient(0deg, #f3f3f3 0%, #ffffff 100%);
-  border: 0.187rem solid hsl(229deg, 25%, 31%);
+  border-color: hsl(229deg, 25%, 31%);
   color: hsl(229deg, 25%, 31%);
   cursor: pointer;
+}
+.fixed-buttons #sound-button {
+  margin-right: 1rem;
 }
 
 @media (max-width: 800px) {
@@ -387,10 +397,6 @@ body {
   }
 }
 @media (max-width: 725px) {
-  body {
-    min-height: 100vh;
-    height: 100%;
-  }
   .picked .result-container {
     top: 98%;
   }
@@ -401,7 +407,7 @@ body {
   }
 }
 @media (max-width: 560px) {
-  .rules-button {
+  .fixed-buttons {
     right: 50%;
     transform: translateX(50%);
   }
