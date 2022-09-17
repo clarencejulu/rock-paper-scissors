@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -14,7 +13,7 @@
 
 </head>
 
-  <div class="header">
+  <header>
     <img src="images/logo.svg" alt="logo">
     <div class="score-container">
       <div class="score-contents">
@@ -22,22 +21,21 @@
         <p class="score"><span class="you">you</span><span id="your-score">0</span> - <span id="cpu-score">0</span></p>
       </div>
     </div>
-  </div>
+  </header>
 
-  <div class="container">
+  <main class="container">
     <div id="main-container"></div>
-  </div>
+  </main>
   
   <audio id="win" src="sounds/win.mp3"></audio>
   <audio id="tie" src="sounds/tie.mp3"></audio>
   <audio id="lose" src="sounds/lose.mp3"></audio>
 
-  <div class="fixed-buttons">
+  <aside class="fixed-buttons">
     <button id="sound-button">sound: on</button>
     <button id="rules-button">rules</button>
-  </div>
+  </aside>
 
-  
   <script src="script.js"></script>
 </body>
 </html>
