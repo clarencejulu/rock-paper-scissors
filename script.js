@@ -30,30 +30,38 @@ rulesButton.addEventListener( 'click', () => {
     })
 })
 
-soundButton.addEventListener( 'click', () => {
+// sound
+const soundButtonControl = () => {
   if(soundButton.innerHTML === 'sound: on'){
-    soundButton.innerHTML = 'sound: off';
-    soundArray.forEach( sound => {
-      document.getElementById(sound).volume = 0.0;
-    })
+    setVolume('off');
   }
   else if(soundButton.innerHTML === 'sound: off'){
-    soundButton.innerHTML = 'sound: on';
-    soundArray.forEach( sound => {
-      document.getElementById(sound).volume = 1.0;
-    })
+    setVolume('on');
   }
   else{
     console.log('Sound Button is not working');
   }
-}) 
+}
+soundButton.addEventListener('click', soundButtonControl);
 
+function setVolume(volume) {
+  soundButton.innerHTML = `sound: ${volume}`;
+  soundArray.forEach( sound => {
+    document.getElementById(sound).volume = volume === 'on' ? 1.0 : 0.0;
+  })  
+  localStorage.setItem('volume', JSON.stringify(volume)); 
+}
+
+const currentVolume = JSON.parse(localStorage.getItem('volume')); 
+if(currentVolume){
+  setVolume(currentVolume);
+}
 const currentScore = JSON.parse(localStorage.getItem('gameScore')); 
 if(currentScore){
   LoadLS();
 }
-createTriangle();
 
+createTriangle();
 function createTriangle(){
   const divTriangle = document.createElement('div');
   divTriangle.classList.add('triangle');
